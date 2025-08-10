@@ -3,6 +3,7 @@ import memberZhang from '@/assets/member-zhang.jpg';
 import memberLi from '@/assets/member-li.jpg';
 import memberWang from '@/assets/member-wang.jpg';
 import memberChen from '@/assets/member-chen.jpg';
+import chenChuangShiRen from '@/assets/陈创使人.png';
 interface Member {
   id: string;
   name: string;
@@ -162,7 +163,7 @@ const GeeksSection = () => {
       id: '陈宇',
       name: '陈宇',
       title: 'X极客网创始人',
-      avatar: '/src/assets/陈创使人.png',
+      avatar: chenChuangShiRen,
       story: '三次成功创业经历，专注消费科技领域，累计融资过亿。',
       abilities: {
         创新: 96,
