@@ -3,7 +3,6 @@ import memberZhang from '@/assets/member-zhang.jpg';
 import memberLi from '@/assets/member-li.jpg';
 import memberWang from '@/assets/member-wang.jpg';
 import memberChen from '@/assets/member-chen.jpg';
-import chenChuang from '@/assets/陈创使人.png';
 interface Member {
   id: string;
   name: string;
@@ -163,7 +162,7 @@ const GeeksSection = () => {
       id: '陈宇',
       name: '陈宇',
       title: 'X极客网创始人',
-      avatar: chenChuang,
+      avatar: '/src/assets/陈创使人.png',
       story: '三次成功创业经历，专注消费科技领域，累计融资过亿。',
       abilities: {
         创新: 96,
@@ -267,8 +266,8 @@ const GeeksSection = () => {
       hidden: true
     },
     {
-      id: '陈运营',
-      name: '陈运营',
+      id: '李运营',
+      name: '李运营',
       title: '运营专家',
       avatar: memberLi,
       story: '小红书运营总监，在社区运营和用户增长方面经验丰富。',
@@ -284,8 +283,8 @@ const GeeksSection = () => {
       joinTime: '2024-06-28'
     },
     {
-      id: '林投资人',
-      name: '林投资人',
+      id: '刘投资人',
+      name: '刘投资人',
       title: '风险投资人',
       avatar: memberWang,
       story: '红杉资本投资总监，关注早期科技项目投资。',
@@ -398,7 +397,7 @@ const GeeksSection = () => {
     { name: '市场拓展', level: 2, weights: { 创新: 15, 跨界: 20, 资源: 25, 技术: 5, 商业: 25, 领导: 10 }, x: 35, y: 67 },
     
     // 第1层：基础运营层
-    { name: '行政专员', level: 1, weights: { 创新: 5, 跨界: 10, 资源: 15, 技术: 5, 商业: 15, 领导: 50 }, x: 65, y: 80 }
+    { name: '行政专员', level: 1, weights: { 创新: 5, 跨界: 10, 资源: 15, 技术: 5, 商业: 15, 领导: 50 }, x: 65, y: 80, hidden: true }
   ];
 
   const calculatePositionScore = (abilities: any, positionWeights: any) => {
@@ -509,7 +508,7 @@ const GeeksSection = () => {
             <div className="relative h-full bg-card rounded-lg border p-4">
               <h4 className="font-medium mb-2 text-center">岗位位置评分</h4>
               <div className="relative w-full h-full">
-                {positions.map((position) => {
+                {positions.filter(position => !position.hidden).map((position) => {
                   const score = calculatePositionScore(selectedMemberData.abilities, position.weights);
                   const isHovered = hoveredPosition === position.name;
                   const isBest = bestMatch.position === position.name;
